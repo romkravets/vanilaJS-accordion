@@ -3,24 +3,34 @@ const EXPAND_CLASS_NAME = 'accordion__panel_expand';
 
 export function accordion(targetElement) {
    const controls = targetElement.querySelectorAll(`.${TITLE_CLASS_NAME}`);
+   let expandedElement;
 
-   function expend() {
-
+   function expend(panel) {
+      if (expandedElement) {
+         expandedElement.classList.remove(EXPAND_CLASS_NAME);
+      }
+      panel.classList.add(EXPAND_CLASS_NAME);
+      expandedElement = panel;
    }
 
    function collapse() {
 
    }
 
-   function toggle() {
-
+   function toggle(control) {
+      const panel = control.parentElement;
+      if(panel.classList.contains(EXPAND_CLASS_NAME)) {
+         collapse(panel);
+      } else {
+         expend(panel);
+      }
    }
 
    function handleEvents() {
       for(const control of controls) {
-         control.addEventListener('click', function(){
-            control.parentElement.classList.toggle(EXPAND_CLASS_NAME);
-         })
+         control.addEventListener('click', () => {
+            toggle(control);
+         });
       }
    }
 
