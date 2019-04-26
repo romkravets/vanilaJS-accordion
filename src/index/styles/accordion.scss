@@ -1,0 +1,26 @@
+.accordion {
+   &__title {
+      border: none;
+      width: 100%;
+      font-size: 1rem;
+      text-align: left;
+      background-color: #efefee;
+      padding: 1rem;
+   }
+   &__content {
+      background-color: aqua;
+      height: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s;
+   }
+   &__panel {
+      border: 1px solid red;
+      &_expand {
+         .accordion__content {
+            height: auto;
+            transform: scaleY(1);
+         }
+      }
+   }
+}
