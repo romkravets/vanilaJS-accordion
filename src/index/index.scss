@@ -1,1 +1,17 @@
  @import './styles/accordion.scss';
+ @import './styles/base.scss';
+
+ .page {
+    display: flex;
+ }
+
+ .side-nav {
+   width: 20%;
+   flex: 20% 0 0;
+   background: rgb(20, 33, 48);
+ }
+
+ main {
+    width: 80%;
+    flex: 80% 0 0;
+}
