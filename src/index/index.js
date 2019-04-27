@@ -30,3 +30,18 @@ const accordionSection = [
 ];
 
 accordion(document.querySelector('#simpleAccordion'), accordionSection);
+accordion(document.querySelector('#contentAccordion'), [
+   {
+      title: 'Content 1',
+      content:`<h3>HELO WORLD</h3>`
+   },
+   {
+      title: 'Content 2',
+      content:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.  `
+   },
+]);

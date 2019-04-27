@@ -1,5 +1,6 @@
 .accordion {
    &__title {
+      position: relative;
       border: none;
       color: rgb(255, 255, 255);
       width: 100%;
@@ -8,8 +9,14 @@
       background-color: rgb(151, 148, 148);
       padding: 1rem;
       cursor: pointer;
-      outline:none;
+      outline: none;
       text-transform: uppercase;
+      &:after {
+         content: '+';
+         position: absolute;
+         top: 8px;
+         right: 8px;
+      }
    }
    &__content {
       background-color: rgb(249, 249, 249);
@@ -17,12 +24,18 @@
       padding: 0 1rem;
       transform: scaleY(0);
       transform-origin: top;
-      transition: transform 0.3s;
+      transition: all 0.3s;
    }
    &__panel {
       border-bottom: 1px solid rgb(255, 255, 255);
+      border-right: 1px solid rgb(255, 255, 255);
       box-shadow: 0px 8px 13px 0px rgba(0,0,0,0.2);
       &_expand {
+         .accordion__title {
+            &:after {
+               content: '-';
+            }
+         }
          .accordion__content {
             height: auto;
             transform: scaleY(1);
