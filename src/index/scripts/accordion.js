@@ -4,16 +4,16 @@ const PANEL_CLASS_NAME = `${ROOT_CLASS_NAMES}__panel`;
 const CONTENT_CLASS_NAME = `${ROOT_CLASS_NAMES}__content`;
 const EXPAND_CLASS_NAME = `${PANEL_CLASS_NAME}_expand`;
 
-export function accordion(targetElement, accordionSections) {
+export function Accordion(targetElement, accordionSections) {
    let controls;
    let expandedElement;
 
-   function render() {
+   this.render = function() {
       targetElement.classList.add(ROOT_CLASS_NAMES);
-      renderPanels()
+      this.renderPanels()
    }
 
-   function renderPanels() {
+   this.renderPanels = function () {
       for (let section of accordionSections) {
          let panel = document.createElement('div');
          let control = document.createElement('button');
@@ -26,7 +26,7 @@ export function accordion(targetElement, accordionSections) {
          control.textContent = section.title;
          content.innerHTML = section.content;
 
-         control.addEventListener('click', toggle);
+         control.addEventListener('click', this.toggle);
          panel.appendChild(control);
          panel.appendChild(content);
          targetElement.appendChild(panel);
@@ -41,14 +41,13 @@ export function accordion(targetElement, accordionSections) {
       expandedElement = panel;
    }
 
-   function collapse() {
+   function collapse () {
       expandedElement.classList.remove(EXPAND_CLASS_NAME);
       expandedElement = undefined;
 
    }
 
-   function toggle() {
-      console.log(this);
+   this.toggle = function() {
       const panel = this.parentElement;
       if(panel.classList.contains(EXPAND_CLASS_NAME)) {
          collapse();
@@ -57,6 +56,5 @@ export function accordion(targetElement, accordionSections) {
       }
    }
 
-
-   render();
+   this.render();
 }

@@ -1,7 +1,7 @@
 import './index.scss';
 import './styles/accordion.scss';
 
-import { accordion} from './scripts/accordion';
+import { Accordion} from './scripts/accordion';
 
 const accordionSection = [
    {
@@ -29,8 +29,8 @@ const accordionSection = [
    },
 ];
 
-accordion(document.querySelector('#simpleAccordion'), accordionSection);
-accordion(document.querySelector('#contentAccordion'), [
+const accordOne = new Accordion(document.querySelector('#simpleAccordion'), accordionSection);
+const accordTwo = new Accordion(document.querySelector('#contentAccordion'), [
    {
       title: 'Content 1',
       content:`<h3>HELO WORLD</h3>`
@@ -38,10 +38,13 @@ accordion(document.querySelector('#contentAccordion'), [
    {
       title: 'Content 2',
       content:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Lorem ipsum dolor sit amet consectetur adipisicing elit.  `
    },
 ]);
+
+console.log(accordOne);
+console.log(accordTwo);
