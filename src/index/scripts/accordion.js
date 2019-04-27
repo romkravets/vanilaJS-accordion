@@ -14,13 +14,16 @@ export function accordion(targetElement) {
    }
 
    function collapse() {
+      expandedElement.classList.remove(EXPAND_CLASS_NAME);
+      expandedElement = undefined;
 
    }
 
-   function toggle(control) {
-      const panel = control.parentElement;
+   function toggle() {
+      console.log(this);
+      const panel = this.parentElement;
       if(panel.classList.contains(EXPAND_CLASS_NAME)) {
-         collapse(panel);
+         collapse();
       } else {
          expand(panel);
       }
@@ -28,10 +31,7 @@ export function accordion(targetElement) {
 
    function handleEvents() {
       for(const control of controls) {
-         control.addEventListener('click', function() {
-            console.log()
-            toggle(control);
-         });
+         control.addEventListener('click', toggle);
       }
    }
 
