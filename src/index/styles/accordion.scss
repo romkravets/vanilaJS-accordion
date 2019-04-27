@@ -1,21 +1,27 @@
 .accordion {
    &__title {
       border: none;
+      color: rgb(255, 255, 255);
       width: 100%;
       font-size: 1rem;
       text-align: left;
-      background-color: #efefee;
+      background-color: rgb(151, 148, 148);
       padding: 1rem;
+      cursor: pointer;
+      outline:none;
+      text-transform: uppercase;
    }
    &__content {
-      background-color: aqua;
+      background-color: rgb(249, 249, 249);
       height: 0;
+      padding: 0 1rem;
       transform: scaleY(0);
       transform-origin: top;
       transition: transform 0.3s;
    }
    &__panel {
-      border: 1px solid red;
+      border-bottom: 1px solid rgb(255, 255, 255);
+      box-shadow: 0px 8px 13px 0px rgba(0,0,0,0.2);
       &_expand {
          .accordion__content {
             height: auto;
