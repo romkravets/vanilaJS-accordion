@@ -5,7 +5,7 @@ export function accordion(targetElement) {
    const controls = targetElement.querySelectorAll(`.${TITLE_CLASS_NAME}`);
    let expandedElement;
 
-   function expend(panel) {
+   function expand(panel) {
       if (expandedElement) {
          expandedElement.classList.remove(EXPAND_CLASS_NAME);
       }
@@ -22,13 +22,14 @@ export function accordion(targetElement) {
       if(panel.classList.contains(EXPAND_CLASS_NAME)) {
          collapse(panel);
       } else {
-         expend(panel);
+         expand(panel);
       }
    }
 
    function handleEvents() {
       for(const control of controls) {
-         control.addEventListener('click', () => {
+         control.addEventListener('click', function() {
+            console.log()
             toggle(control);
          });
       }
